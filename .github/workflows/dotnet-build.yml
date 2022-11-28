@@ -19,4 +19,6 @@ jobs:
       with:
         global-json-file: global.json
     - name: Build
-      run: dotnet build /bl:"artifacts/msbuild.binlog"
+      run: dotnet build /bl:"artifacts/build.binlog"
+    - name: Build samples
+      run: dotnet build samples/ /bl:"artifacts/samples.binlog"
