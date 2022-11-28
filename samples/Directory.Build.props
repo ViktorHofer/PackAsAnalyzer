@@ -1,4 +1,5 @@
 <Project>
+  <Import Project="..\Directory.Build.props" />
 
   <Sdk Name="ViHo.PackAsAnalyzer" Version="1.0.0" />
 
