@@ -7,7 +7,7 @@ MSBuild infrastructure support to include source generators (analyzers) in nuget
 <Project>
 
   <!-- Reference the msbuild sdk package from nuget.org which makes it automatically available to all projects in the repo. -->
-  <Sdk Name="ViHo.PackAsAnalyzer" Version="1.0.0" />
+  <Sdk Name="ViHo.PackAsAnalyzer" Version="1.0.1" />
 
 </Project>
 ```
