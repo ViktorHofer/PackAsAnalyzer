@@ -25,6 +25,7 @@ pr:
     exclude:
     - '*.md'
 
+jobs:
 - job: LinuxBuild
   displayName: 'Build (Linux)'
   pool:
