@@ -1,0 +1,7 @@
+<Project>
+
+  <PropertyGroup>
+    <BeforePack>$(BeforePack);IncludePackAsAnalyzerProjectReferences</BeforePack>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,45 @@
+<Project>
+
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+
+    <ArtifactsDir>$([MSBuild]::NormalizeDirectory('$(RepoRoot)', 'artifacts'))</ArtifactsDir>
+    <ArtifactsBinDir>$([MSBuild]::NormalizeDirectory('$(ArtifactsDir)', 'bin'))</ArtifactsBinDir>
+    <ArtifactsObjDir>$([MSBuild]::NormalizeDirectory('$(ArtifactsDir)', 'obj'))</ArtifactsObjDir>
+
+    <BaseOutputPath>$([System.IO.Path]::GetFullPath('$(ArtifactsBinDir)$(MSBuildProjectName)\'))</BaseOutputPath>
+    <BaseIntermediateOutputPath>$([System.IO.Path]::GetFullPath('$(ArtifactsObjDir)$(MSBuildProjectName)\'))</BaseIntermediateOutputPath>
+
+    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Viktor Hofer</Authors>
+    <Company>Viktor Hofer</Company>
+    <Copyright>© Viktor Hofer</Copyright>
+    <PackageProjectUrl>https://github.com/ViktorHofer/PackAsAnalyzer</PackageProjectUrl>
+    <PackageIcon Condition="'$(PackageIcon)' == ''">Icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIconPath>$(MSBuildThisFileDirectory)$(PackageIcon)</PackageIconPath>
+    <RepositoryUrl>https://github.com/ViktorHofer/PackAsAnalyzer.git</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IsPackable)' == 'true'">
+    <None Include="Sdk\**"
+          Pack="true"
+          PackagePath="Sdk\" />
+    <None Include="$(MSBuildThisFileDirectory)README.md"
+          Pack="true"
+          PackagePath="\" />
+    <None Include="$(PackageIconPath)"
+          Pack="true"
+          PackagePath="\"
+          Visible="false" />
+  </ItemGroup>
+
+</Project>
